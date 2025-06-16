@@ -1,0 +1,33 @@
+{
+  "extends": [
+    "../tsconfig.base.json",
+    "@vue/tsconfig/tsconfig.dom.json"
+  ],
+  "compilerOptions": {
+    /* Build info for incremental compilation */
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+    /* Override base config for frontend app */
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+
+    /* Vue specific */
+    "allowImportingTsExtensions": true,
+
+    /* Linting */
+    "strict": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noEmit": true,
+    "isolatedModules": true,
+    "verbatimModuleSyntax": false,
+    "erasableSyntaxOnly": true,
+    "noUncheckedSideEffectImports": true
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue"
+  ]
+}

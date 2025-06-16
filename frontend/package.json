@@ -1,0 +1,20 @@
+{
+  "name": "frontend",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc -b && vite build",
+    "preview": "vite preview",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "dependencies": {
+    "vue": "catalog:"
+  },
+  "devDependencies": {
+    "@unocss/preset-rem-to-px": "catalog:",
+    "unocss": "catalog:",
+    "unocss-preset-scrollbar": "catalog:"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+
+    /* Path mapping */
+    "baseUrl": "./",
+    /* Override base config for Node.js environment */
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+
+    "paths": {
+      "@/*": ["src/*"]
+    },
+    /* Node.js specific */
+    "types": ["node"],
+    "strict": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "declaration": true,
+    "declarationMap": true,
+    "noEmit": false,
+    "outDir": "./dist",
+    "sourceMap": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true
+  },
+  "include": [
+    "src/**/*.ts",
+    "*.config.ts",
+    "scripts/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "**/*.test.ts",
+    "**/*.spec.ts"
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Base TypeScript Config",
+  "compilerOptions": {
+    /* Language and Environment */
+    "target": "ES2022",
+    "lib": ["ES2022"],
+    "moduleDetection": "force",
+    "useDefineForClassFields": true,
+
+    /* Modules */
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+
+    /* Type Checking - Strict Mode */
+    "strict": true,
+    "exactOptionalPropertyTypes": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noUncheckedIndexedAccess": true,
+
+    /* Type Checking - Additional Checks */
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "declaration": true,
+    "declarationMap": true,
+    /* Emit */
+    "noEmit": true,
+    "sourceMap": true,
+
+    /* Interop Constraints */
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "noUncheckedSideEffectImports": true,
+
+    /* Advanced */
+    "verbatimModuleSyntax": true,
+    /* Completeness */
+    "skipLibCheck": true
+  },
+  "exclude": [
+    "**/node_modules",
+    "**/dist",
+    "**/build",
+    "**/.next",
+    "**/.nuxt",
+    "**/*.test.*",
+    "**/*.spec.*"
+  ]
+}

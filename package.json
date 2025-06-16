@@ -1,0 +1,25 @@
+{
+  "name": "chatroom-demo",
+  "private": true,
+  "packageManager": "pnpm@10.12.1",
+  "scripts": {
+    "dev": "pnpm --filter frontend dev",
+    "build": "pnpm --filter frontend build && pnpm --filter backend build",
+    "start": "pnpm --filter backend start",
+    "lint": "pnpm --filter frontend lint && pnpm --filter backend lint",
+    "lint:fix": "pnpm --filter frontend lint:fix && pnpm --filter backend lint:fix"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "catalog:",
+    "@types/node": "catalog:",
+    "@unocss/eslint-plugin": "catalog:",
+    "@vitejs/plugin-vue": "catalog:",
+    "@vue/tsconfig": "catalog:",
+    "eslint": "catalog:",
+    "tsdown": "catalog:",
+    "tsx": "catalog:",
+    "typescript": "catalog:",
+    "vite": "catalog:",
+    "vue-tsc": "catalog:"
+  }
+}

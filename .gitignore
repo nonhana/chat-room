@@ -1,0 +1,82 @@
+# ─── 通用日志文件 ─────────────────────────────
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# ─── 构建产物输出 ─────────────────────────────
+dist/
+dist-ssr/
+build/
+.next/
+.nuxt/
+.cache/
+.parcel-cache/
+.out/
+.storybook-out/
+coverage/
+public/
+lib-cov/
+
+# ─── node 工具缓存 ───────────────────────────
+node_modules/
+jspm_packages/
+bower_components/
+web_modules/
+.rpt2_cache/
+.rts2_cache_*/
+.nyc_output/
+.lock-wscript
+.eslintcache
+.rts2_cache_es/
+.rts2_cache_cjs/
+.rts2_cache_umd/
+
+# ─── TypeScript 缓存 ─────────────────────────
+*.tsbuildinfo
+
+# ─── npm/yarn/其他工具缓存 ────────────────────
+.npm
+.yarn-integrity
+*.tgz
+
+# ─── PID / 运行数据文件 ───────────────────────
+pids/
+*.pid
+*.seed
+*.pid.lock
+.node_repl_history
+
+# ─── dotenv 环境变量文件 ──────────────────────
+.env
+.env.*
+*.local
+
+# ─── 编辑器和 IDE 配置 ────────────────────────
+.cursor/
+.vscode/
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.swp
+*.swo
+
+# ─── 操作系统文件 ─────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# ─── 临时目录 ─────────────────────────────────
+tmp/
+temp/
