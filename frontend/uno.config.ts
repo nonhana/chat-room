@@ -139,7 +139,14 @@ export default defineConfig({
       getCSS: () => `
         html,
         body {
+          margin: 0;
+          padding: 0;
+          height: 100%;
           @apply contents font-noto;
+        }
+
+        #app {
+          height: 100vh;
         }
         
         ::selection {

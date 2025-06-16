@@ -1,22 +1,22 @@
 import process from 'node:process'
-import Fastify from 'fastify'
+import { createApp } from './app.js'
+import env from './env.js'
 
-const fastify = Fastify({
-  logger: true,
-})
-
-fastify.get('/', async () => {
-  return { message: 'Hello from Fastify!' }
-})
-
+/**
+ * Start the server
+ */
 async function start() {
   try {
-    const port = process.env.PORT ?? '3000'
-    await fastify.listen({ port: Number.parseInt(port) })
-    console.log(`Server running on port ${port}`)
+    const app = await createApp()
+    const port = env.PORT
+    const host = env.HOST
+
+    await app.listen({ port, host })
+    console.log(`🚀 Chatroom server running on http://${host}:${port}`)
+    console.log(`📡 WebSocket endpoint: ws://${host}:${port}/ws`)
   }
   catch (err) {
-    fastify.log.error(err)
+    console.error('Failed to start server:', err)
     process.exit(1)
   }
 }

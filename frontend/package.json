@@ -10,9 +10,16 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
-    "vue": "catalog:"
+    "@unocss/reset": "^66.2.1",
+    "@vueuse/core": "catalog:",
+    "axios": "catalog:",
+    "pinia": "catalog:",
+    "vue": "catalog:",
+    "vue-router": "^4.5.1"
   },
   "devDependencies": {
+    "@iconify-json/carbon": "^1.2.9",
+    "@unocss/preset-icons": "^66.2.1",
     "@unocss/preset-rem-to-px": "catalog:",
     "unocss": "catalog:",
     "unocss-preset-scrollbar": "catalog:"

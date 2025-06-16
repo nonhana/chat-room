@@ -1,43 +1,63 @@
-# backend
+# Chatroom Backend
 
-A Node.js library
+Fastify-based backend for the chatroom application.
 
-## Installation
+## Environment Variables
+
+Create a `.env` file in the backend directory with:
+
+```env
+# Database
+DATABASE_URL="postgresql://username:password@localhost:5432/chatroom?schema=public"
+
+# JWT Secret
+JWT_SECRET="your-super-secret-jwt-key-change-this-in-production"
+
+# Server
+PORT=3000
+
+# Development
+NODE_ENV=development
+```
+
+## Getting Started
+
+1. Install dependencies:
 
 ```bash
-npm install backend
+pnpm install
 ```
 
-## Usage
+2. Set up your database and create the `.env` file
 
-```javascript
-import { } from 'backend'
-// Your usage examples here
+3. Generate Prisma client and run migrations:
+
+```bash
+npx prisma generate
+npx prisma migrate dev --name init
 ```
 
-## API
+4. Start development server:
 
-TODO: Add API documentation
+```bash
+pnpm dev
+```
+
+## API Endpoints
+
+- `POST /api/register` - Register new user
+- `POST /api/login` - Login user
+- `GET /api/me` - Get current user (protected)
+- `GET /api/messages` - Get message history (protected)
+- `GET /ws?token=<jwt>` - WebSocket connection
 
 ## Development
 
-### Install dependencies
-
-```bash
-npm install
-```
-
-### Build
-
-```bash
-npm run build
-```
-
-### Test
-
-```bash
-npm test
-```
+- `pnpm dev` - Start development server with hot reload
+- `pnpm build` - Build for production
+- `pnpm start` - Start production server
+- `pnpm lint` - Run ESLint
+- `pnpm lint:fix` - Fix ESLint issues
 
 ## License
 

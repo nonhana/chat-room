@@ -5,13 +5,25 @@ packages:
 
 catalog:
   '@antfu/eslint-config': ^4.14.1
+  '@fastify/cors': ^11.0.1
+  '@fastify/jwt': ^9.1.0
+  '@fastify/websocket': ^11.1.0
+  '@prisma/client': ^6.9.0
+  '@types/bcryptjs': ^3.0.0
   '@types/node': ^24.0.1
+  '@types/ws': ^8.18.1
   '@unocss/eslint-plugin': ^66.2.1
   '@unocss/preset-rem-to-px': ^66.2.1
   '@vitejs/plugin-vue': ^5.2.4
   '@vue/tsconfig': ^0.7.0
+  '@vueuse/core': ^10.9.0
+  axios: ^1.6.8
+  bcryptjs: ^3.0.2
+  dotenv: ^16.5.0
   eslint: ^9.29.0
   fastify: ^5.3.3
+  pinia: ^2.1.7
+  prisma: ^6.9.0
   tsdown: ^0.12.7
   tsx: ^4.20.3
   typescript: ^5.8.3
@@ -20,6 +32,8 @@ catalog:
   vite: ^6.3.5
   vue: ^3.5.13
   vue-tsc: ^2.2.10
+  zod: ^3.25.64
 
 onlyBuiltDependencies:
   - esbuild
+  - vue-demi
