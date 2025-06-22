@@ -31,15 +31,16 @@
   "dependencies": {
     "@fastify/cors": "catalog:",
     "@fastify/jwt": "catalog:",
+    "@fastify/type-provider-typebox": "catalog:",
     "@fastify/websocket": "catalog:",
     "@prisma/client": "catalog:",
+    "@sinclair/typebox": "catalog:",
     "bcryptjs": "catalog:",
     "dotenv": "catalog:",
     "fastify": "catalog:",
     "zod": "catalog:"
   },
   "devDependencies": {
-    "@types/bcryptjs": "catalog:",
     "@types/ws": "catalog:",
     "prisma": "catalog:"
   }

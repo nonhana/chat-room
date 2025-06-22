@@ -1,38 +1,29 @@
-import type { FastifyReply, FastifyRequest } from 'fastify'
 import cors from '@fastify/cors'
 import jwt from '@fastify/jwt'
 import websocket from '@fastify/websocket'
 import Fastify from 'fastify'
-import env from './env.js'
-
-// Routes
+import env from './config/env.js'
 import { authRoutes } from './routes/auth.js'
 import { messageRoutes } from './routes/messages.js'
 import { websocketHandler } from './websocket/handler.js'
 
-/**
- * Create and configure Fastify application
- */
 export async function createApp() {
-  const fastify = Fastify({
+  const app = Fastify({
     logger: env.NODE_ENV === 'development',
   })
 
-  // Register CORS plugin
-  await fastify.register(cors, {
+  await app.register(cors, {
     origin: env.NODE_ENV === 'development'
       ? ['http://localhost:5173', 'http://localhost:3000']
       : false,
     credentials: true,
   })
 
-  // Register JWT plugin
-  await fastify.register(jwt, {
+  await app.register(jwt, {
     secret: env.JWT_SECRET,
   })
 
-  // Add JWT authentication decorator
-  fastify.decorate('authenticate', async (request: FastifyRequest, reply: FastifyReply) => {
+  app.decorate('authenticate', async (request, reply) => {
     try {
       await request.jwtVerify()
     }
@@ -41,22 +32,18 @@ export async function createApp() {
     }
   })
 
-  // Register WebSocket plugin
-  await fastify.register(websocket)
+  await app.register(websocket)
 
-  // Register routes with API prefix
-  await fastify.register(async (fastify) => {
+  await app.register(async (fastify) => {
     await fastify.register(authRoutes, { prefix: '/api' })
     await fastify.register(messageRoutes, { prefix: '/api' })
   })
 
-  // Register WebSocket handler
-  await fastify.register(websocketHandler)
+  await app.register(websocketHandler)
 
-  // Health check endpoint
-  fastify.get('/health', async () => {
+  app.get('/health', async () => {
     return { status: 'ok', timestamp: new Date().toISOString() }
   })
 
-  return fastify
+  return app
 }

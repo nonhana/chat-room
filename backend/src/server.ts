@@ -1,10 +1,7 @@
 import process from 'node:process'
 import { createApp } from './app.js'
-import env from './env.js'
+import env from './config/env.js'
 
-/**
- * Start the server
- */
 async function start() {
   try {
     const app = await createApp()

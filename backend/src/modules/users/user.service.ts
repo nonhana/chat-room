@@ -1,16 +1,9 @@
-import type { AuthResponse, LoginRequest, RegisterRequest } from '../types/auth.js'
+import type { LoginType, RegisterType } from './user.schema.js'
 import bcrypt from 'bcryptjs'
-import { prisma } from '../lib/prisma.js'
+import { prisma } from '@/lib/prisma.js'
 
-/**
- * User service for handling user-related operations
- */
 export class UserService {
-  /**
-   * Register a new user
-   */
-  async register(data: RegisterRequest): Promise<Omit<AuthResponse, 'token'>> {
-    // Check if user already exists
+  async register(data: RegisterType) {
     const existingUser = await prisma.user.findUnique({
       where: { username: data.username },
     })
@@ -19,10 +12,8 @@ export class UserService {
       throw new Error('Username already exists')
     }
 
-    // Hash password
     const hashedPassword = await bcrypt.hash(data.password, 12)
 
-    // Create user
     const user = await prisma.user.create({
       data: {
         username: data.username,
@@ -46,11 +37,7 @@ export class UserService {
     }
   }
 
-  /**
-   * Login user
-   */
-  async login(data: LoginRequest): Promise<Omit<AuthResponse, 'token'>> {
-    // Find user by username
+  async login(data: LoginType) {
     const user = await prisma.user.findUnique({
       where: { username: data.username },
     })
@@ -59,7 +46,6 @@ export class UserService {
       throw new Error('Invalid credentials')
     }
 
-    // Verify password
     const isValidPassword = await bcrypt.compare(data.password, user.password)
 
     if (!isValidPassword) {
@@ -76,9 +62,6 @@ export class UserService {
     }
   }
 
-  /**
-   * Get user by ID
-   */
   async getUserById(id: number) {
     const user = await prisma.user.findUnique({
       where: { id },
@@ -100,3 +83,5 @@ export class UserService {
     }
   }
 }
+
+export const userService = new UserService()

@@ -1,14 +1,8 @@
-import type { CreateMessageRequest, MessageResponse } from '../types/message.js'
-import { prisma } from '../lib/prisma.js'
+import type { CreateMsgResType, CreateMsgType } from './message.schema.js'
+import { prisma } from '@/lib/prisma.js'
 
-/**
- * Message service for handling message-related operations
- */
 export class MessageService {
-  /**
-   * Create a new message
-   */
-  async createMessage(authorId: number, data: CreateMessageRequest): Promise<MessageResponse> {
+  async createMessage(authorId: number, data: CreateMsgType): Promise<CreateMsgResType> {
     const message = await prisma.message.create({
       data: {
         content: data.content,
@@ -37,10 +31,7 @@ export class MessageService {
     }
   }
 
-  /**
-   * Get message history with pagination
-   */
-  async getMessages(limit = 50, offset = 0): Promise<MessageResponse[]> {
+  async getMessages(limit = 50, offset = 0): Promise<CreateMsgResType[]> {
     const messages = await prisma.message.findMany({
       orderBy: {
         createdAt: 'desc',
@@ -59,7 +50,7 @@ export class MessageService {
     })
 
     return messages
-      .reverse() // Reverse to get chronological order
+      .reverse()
       .map(message => ({
         id: message.id,
         content: message.content,
@@ -72,9 +63,6 @@ export class MessageService {
       }))
   }
 
-  /**
-   * Get messages count
-   */
   async getMessagesCount(): Promise<number> {
     return await prisma.message.count()
   }

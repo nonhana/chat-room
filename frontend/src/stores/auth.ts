@@ -7,7 +7,7 @@ import { authApi } from '../services/api'
 /**
  * Generate a simple unique ID for tab identification
  */
-const generateTabId = (): string => Date.now().toString(36) + Math.random().toString(36).substring(2)
+const generateTabId = () => Date.now().toString(36) + Math.random().toString(36).substring(2)
 
 /**
  * Storage keys
