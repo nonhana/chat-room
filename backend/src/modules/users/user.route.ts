@@ -6,7 +6,7 @@ import { UserService } from './user.service.js'
 /**
  * Authentication routes plugin
  */
-export async function authRoutes(fastify: FastifyInstance) {
+export async function userRoutes(fastify: FastifyInstance) {
   const userService = new UserService()
 
   /**

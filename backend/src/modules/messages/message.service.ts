@@ -67,3 +67,5 @@ export class MessageService {
     return await prisma.message.count()
   }
 }
+
+export const messageService = new MessageService()

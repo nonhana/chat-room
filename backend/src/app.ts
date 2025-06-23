@@ -3,9 +3,9 @@ import jwt from '@fastify/jwt'
 import websocket from '@fastify/websocket'
 import Fastify from 'fastify'
 import env from './config/env.js'
-import { authRoutes } from './routes/auth.js'
-import { messageRoutes } from './routes/messages.js'
-import { websocketHandler } from './websocket/handler.js'
+import { messageRoutes } from './modules/messages/message.route.js'
+import { userRoutes } from './modules/users/user.route.js'
+import { websocketRoutes } from './plugins/websocket/websocket.route.js'
 
 export async function createApp() {
   const app = Fastify({
@@ -35,11 +35,11 @@ export async function createApp() {
   await app.register(websocket)
 
   await app.register(async (fastify) => {
-    await fastify.register(authRoutes, { prefix: '/api' })
+    await fastify.register(userRoutes, { prefix: '/api' })
     await fastify.register(messageRoutes, { prefix: '/api' })
   })
 
-  await app.register(websocketHandler)
+  await app.register(websocketRoutes)
 
   app.get('/health', async () => {
     return { status: 'ok', timestamp: new Date().toISOString() }
