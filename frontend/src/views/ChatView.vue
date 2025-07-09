@@ -125,7 +125,7 @@ onUnmounted(() => {
     <!-- Messages Container -->
     <div
       ref="chatContainer"
-      class="flex-1 overflow-y-auto px-4 py-6 scrollbar space-y-4"
+      class="flex-1 overflow-y-auto px-4 py-6 space-y-4 scrollbar"
     >
       <MessageList :messages="messages" :current-user="currentUser" />
 

@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import type { LoginForm } from '../types/auth'
 import { reactive, ref } from 'vue'
-import { useAuthStore } from '../stores/auth'
 import { useRouter } from 'vue-router'
+import { useAuthStore } from '../stores/auth'
 
 const authStore = useAuthStore()
 const router = useRouter()
@@ -116,7 +116,7 @@ function toggleMode() {
           <button
             type="submit"
             :disabled="authStore.isLoading"
-            class="w-full rounded-lg bg-primary-500! px-4 py-3 text-white font-medium transition-colors duration-200 disabled:bg-primary-300 hover:bg-primary-600"
+            class="w-full rounded-lg px-4 py-3 text-white font-medium transition-colors duration-200 bg-primary-500! disabled:bg-primary-300 hover:bg-primary-600"
           >
             {{ authStore.isLoading ? 'Signing in...' : 'Sign In' }}
           </button>

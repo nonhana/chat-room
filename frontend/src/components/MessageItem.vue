@@ -65,4 +65,3 @@ function getAvatarText(username: string) {
     </div>
   </div>
 </template>
-

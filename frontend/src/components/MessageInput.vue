@@ -82,7 +82,7 @@ function stopTyping() {
         v-model="message"
         :disabled="disabled ?? false"
         placeholder="Type a message..."
-        class="w-full resize-none border border-neutral-200 rounded-2xl bg-neutral-50 px-4 py-3 transition-colors disabled:cursor-not-allowed focus:border-transparent disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-primary-500 field-sizing-content"
+        class="w-full resize-none border border-neutral-200 rounded-2xl bg-neutral-50 px-4 py-3 transition-colors field-sizing-content disabled:cursor-not-allowed focus:border-transparent disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-primary-500"
         rows="1"
         style="min-height: 44px; max-height: 120px;"
         @keydown="handleKeydown"

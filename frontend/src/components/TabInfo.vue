@@ -20,4 +20,4 @@ const authStore = useAuthStore()
       </div>
     </div>
   </div>
-</template> 
+</template>
